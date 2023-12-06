@@ -9,7 +9,9 @@
       "@services/*": ["./core/services/*"],
       "@components/*": ["./core/components/*"],
       "@contexts/*": ["./core/contexts/*"],
-      "@interfaces/*": ["./core/interfaces/*"]
+      "@interfaces/*": ["./core/interfaces/*"],
+      "@helpers/*": ["./core/helpers/*"],
+      "@screens/*": ["./core/screens/*"]
     }
   }
 }
