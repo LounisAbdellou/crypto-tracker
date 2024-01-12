@@ -1,15 +1,14 @@
-import * as SecureStore from "expo-secure-store";
+import { MMKV } from "react-native-mmkv";
 
-export async function save(key: string, value: any) {
-  await SecureStore.setItemAsync(key, value);
+export const storage = new MMKV();
+
+export function setStoreItem(key: string, values: any) {
+  storage.set(key, JSON.stringify(values));
 }
 
-export async function getValueFor(key: string) {
-  const result = await SecureStore.getItemAsync(key);
+export function getStoreItem(key: string) {
+  const result = storage.getString(key);
+  if (!result) return;
 
-  if (result) {
-    alert("🔐 Here's your value 🔐 \n" + result);
-  } else {
-    alert("No values stored under that key.");
-  }
+  return JSON.parse(result);
 }
